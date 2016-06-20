@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using UnityEngine.Advertisements;
 
 public class GameController : MonoBehaviour {
 
@@ -16,7 +15,6 @@ public class GameController : MonoBehaviour {
 	public static GameController instance; //Instance
 
 	//Ads
-	public Interstitial interstitial;
 	public Text debugText;
 	public Text debugText2;
 	public int i;
@@ -30,9 +28,9 @@ public class GameController : MonoBehaviour {
 
 		CheckPlayTime ();
 
-		if (Advertisement.isSupported) { // If runtime platform is supported...
-			Advertisement.Initialize(gameId, enableTestMode); // ...initialize.
-		}
+//		if (Advertisement.isSupported) { // If runtime platform is supported...
+//			Advertisement.Initialize(gameId, enableTestMode); // ...initialize.
+//		}
 	}
 
 	void CheckPlayTime()
@@ -73,7 +71,6 @@ public class GameController : MonoBehaviour {
 		if (adsShow > 5 && adsShowing) 
 		{
 			PlayerPrefs.SetInt("PlayTime",1);
-			Advertisement.Show();
 			adsShowing = false;
 			return;
 			// Wait until Unity Ads is initialized,
