@@ -23,6 +23,8 @@ public class GameController : MonoBehaviour {
 	public bool enableTestMode = true;
 	public bool adsShowing = true;
 
+	public AppodealTest appodeal;
+
 	void Awake(){
 		instance = this;
 
@@ -72,6 +74,8 @@ public class GameController : MonoBehaviour {
 		{
 			PlayerPrefs.SetInt("PlayTime",1);
 			adsShowing = false;
+			appodeal.InterstitialAds();
+			Debug.Log("InterstitialAds is showing");
 			return;
 			// Wait until Unity Ads is initialized,
 			//  and the default ad placement is ready.
